@@ -1,0 +1,36 @@
+type Mutation { 
+    login(email: String password: String): Response 
+    signin(input:Userinput):Response
+    logout(email: String):Response
+    }
+input Userinput{ 
+    name: String,
+    last_name: String,
+    email_address: String,
+    password: String
+}
+type Product {
+    id_product: String,
+    name: Stirng,
+    desription: String,
+    price: Float,
+    image: String
+}
+enum TypeUser {
+  ADMIN
+  CLIENT
+}
+type Userinfo {
+    name: String,
+    last_name: String,
+    email_address: String,
+    password: String,
+    wish_list:[Product]
+    typeuser: TypeUser
+    token: String 
+}
+type Response {
+    statuscode: Int
+    success: Boolean
+    userinfo: Userinfo  
+}
